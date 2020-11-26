@@ -1,0 +1,53 @@
+// Print the tree
+	
+	 curr = root;
+	 int i = 0;
+	 int sortedArray[6] = {};
+
+    // Traverse till the end of the left tree
+	 while(curr->left != NULL)
+	 {
+		 curr = curr->left;
+		 i = 2 * i + 1;
+	 }
+	 
+	 // Fill in the left tree in to the sortedArray
+	 
+	 while(curr != root)
+	 {
+		 if (curr->right != NULL)
+		 {
+			 sortedArray[2 * i + 2] = (curr->right)->value;
+		 }
+		 
+		 sortedArray[i] = curr->value;
+		 curr = curr->parent;
+		i = (i - 1)/2;
+	 }
+	
+	// Traverse till the end of the right tree
+	 while(curr->right != NULL)
+	 {
+		 curr = curr->right;
+		 i = 2 * i + 2;
+	 }
+	 // Fill in the right tree in to the sortedArray
+	 
+	 while(curr != root)
+	 {
+		 if (curr->left != NULL)
+		 {
+			 sortedArray[2 * i + 1] = (curr->left)->value;
+		 }
+		 
+		 sortedArray[i] = curr->value;
+		 curr = curr->parent;
+		i = (i - 2)/2;
+	 }
+
+	sortedArray[i] = root->value;
+
+    for (int k = 0; k < 6; k++)
+	{
+		printf("%d ", sortedArray[k]);
+	}

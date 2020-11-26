@@ -1,0 +1,17 @@
+# Python program for implementation of Bubble Sort
+
+def bubbleSort(arr):
+  arrayLength = len(arr)
+  for i in range(arrayLength - 1):
+    if arr[i + 1] < arr[i]:
+      arr[i], arr[i + 1] = arr[i + 1], arr[i]
+# Driver code to test above
+arr = [64, 34, 25, 12, 22, 11, 90, 10, -1]
+
+n = len(arr)
+for i in range(n):
+  bubbleSort(arr)
+
+print ("Sorted array is:")
+for i in range(len(arr)):
+	print ("%d" %arr[i]), 
